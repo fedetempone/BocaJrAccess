@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAdmin } from '../context/AdminContext';
 import { Key, User, ShieldCheck } from "@phosphor-icons/react";
-import '../styles/logingate.css';
+import '../styles/loginGate.css';
 
 const LoginGate = ({ children }) => {
   const { user, login } = useAdmin();
