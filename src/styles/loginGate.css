@@ -1,0 +1,99 @@
+/* recorda que tipografia y colores vienen del app.css */
+
+.loginFullContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 60vh; /* para que no quede pegado al header */
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  border-top: 3px solid var(--amarillo-boca);
+  padding: 30px 20px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loginHeader {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loginHeader h2 {
+  color: var(--amarillo-boca);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.loginHeader p {
+  opacity: 0.6;
+  margin: 0;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.loginField {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.loginIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--azul-boca);
+  z-index: 2;
+  opacity: 0.8;
+}
+
+/* ajustamos el padding del input para que el texto no pise el icono */
+.loginField .boca-input {
+  padding-left: 45px !important;
+  width: 100%;
+}
+
+.loginSubmitBtn {
+  margin-top: 10px;
+  height: 50px; /* un poquito mas alto para que sea facil de tocar */
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+/* animacion de entrada suave */
+.animateIn {
+  animation: loginFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes loginFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-15px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* ajuste para pantallas muy chicas */
+@media (max-width: 400px) {
+  .loginFullContainer {
+    padding-top: 20px;
+  }
+  
+  .loginBox {
+    padding: 20px 15px !important;
+  }
+}

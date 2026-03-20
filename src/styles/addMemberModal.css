@@ -1,0 +1,79 @@
+/* el overlay para que se vea el fondo borroso atras */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.modalContentContainer {
+  width: 100%;
+  max-width: 380px;
+  border-top: 3px solid var(--amarillo-boca);
+  position: relative;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.closeModalBtn {
+  background: transparent;
+  border: none;
+  color: var(--blanco);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.addMemberForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroupField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* el label hereda del app.css, aca solo le damos estilo visual */
+.inputGroupField label {
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.saveMemberBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.animateIn {
+  animation: scaleUp 0.2s ease-out;
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

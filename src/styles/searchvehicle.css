@@ -1,0 +1,271 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.searchVehicleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- BARRA DE BÚSQUEDA --- */
+.searchInputContainer {
+  position: relative;
+  padding: 12px !important;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--azul-boca);
+  opacity: 0.6;
+}
+
+/* --- TARJETA DE RESULTADO --- */
+.resultCardContainer {
+  border-left: 4px solid var(--amarillo-boca);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resultCardContainer.already-in {
+  border-left: 4px solid #ff4444;
+  background: rgba(255, 68, 68, 0.08) !important;
+}
+
+.resultHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.memberFullname {
+  margin: 0;
+  color: var(--blanco);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.plateTag {
+  background: var(--amarillo-boca);
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 1.8rem !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.badge-cargo {
+  background: #003566;
+  color: #ffc300;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid #ffc300;
+  display: inline-block;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* --- VOUCHER CARDS (SISTEMA DE 3) --- */
+.voucher-selection-group {
+  margin: 25px 0;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--amarillo-boca);
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.voucher-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.voucher-card {
+  position: relative;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.voucher-card input {
+  display: none;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-text {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: white;
+  line-height: 1.1;
+}
+
+.sub-text {
+  font-size: 9px;
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+/* --- ESTADOS SELECCIONADOS --- */
+.voucher-card.selected {
+  background: rgba(0, 53, 102, 0.5);
+  border-color: var(--amarillo-boca);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.voucher-card.selected .custom-check {
+  background: var(--amarillo-boca);
+  border-color: var(--amarillo-boca);
+  color: #000;
+}
+
+.voucher-card.selected .main-text {
+  color: var(--amarillo-boca);
+}
+
+/* Color específico para PENDIENTE */
+.icon-orange {
+  color: #ff9f1c !important;
+  border-color: rgba(255, 159, 28, 0.4) !important;
+}
+
+.voucher-card.pending-card.selected {
+  background: rgba(255, 159, 28, 0.15);
+  border-color: #ff9f1c;
+}
+
+.voucher-card.pending-card.selected .custom-check {
+  background: #ff9f1c;
+  border-color: #ff9f1c;
+}
+
+.voucher-card.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.actionButtonsContainer {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.btn-primary:disabled {
+  background: #222 !important;
+  border-color: #444 !important;
+  color: #666 !important;
+  cursor: not-allowed;
+}
+
+/* --- MODAL MANUAL --- */
+.manualForm-Overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.manualForm-Card {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  border-top: 4px solid var(--amarillo-boca);
+}
+
+.modal-title {
+  text-align: center;
+  color: var(--amarillo-boca);
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.manual-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.decision-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-decision {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+}
+
+/* --- ANIMACIONES --- */
+.noResultCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 30px !important;
+  text-align: center;
+}
+
+.animateIn {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .voucher-cards-grid { grid-template-columns: 1fr; }
+  .actionButtonsContainer { flex-direction: column; }
+}

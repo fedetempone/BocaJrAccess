@@ -1,0 +1,187 @@
+/* liveattendance.css */
+
+.liveAttendanceContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.liveHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.liveIndicator {
+  width: 10px;
+  height: 10px;
+  background-color: #00ff88; /* Verde "Live" */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff88;
+  animation: pulse-live 2s infinite;
+}
+
+.liveHeader h3 {
+  color: var(--amarillo-boca);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.liveList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Un poco más de aire entre tarjetas */
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Tarjeta individual de ingreso */
+.liveItemCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 12px 15px;
+  border-radius: 12px;
+  border-left: 4px solid var(--azul-boca);
+  transition: all 0.2s ease;
+}
+
+.liveItemCard:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-left-color: var(--amarillo-boca);
+}
+
+/* Contenedor de textos (Patente, Nombre, Área) */
+.liveItemMain {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.liveTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.livePlate {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.liveName {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Estilo para la nueva DESCRIPCIÓN (Área/Cargo) */
+.liveDescription {
+  font-size: 0.7rem;
+  color: var(--amarillo-boca);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.liveItemMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.liveTime {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Badges de Voucher */
+.liveVoucher {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-align: center;
+  min-width: 50px;
+}
+
+.badge-con { background: #218838; color: white; border: 1px solid rgba(255,255,255,0.2); }
+.badge-sin { background: #c82333; color: white; border: 1px solid rgba(255,255,255,0.2); }
+
+.liveDeleteBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.liveDeleteBtn:hover {
+  color: #ff4444;
+  background: rgba(255, 68, 68, 0.15);
+  transform: scale(1.1);
+}
+
+/* Aviso para operarios */
+.readOnlyNotice {
+  margin-top: 15px;
+  text-align: center;
+  opacity: 0.5;
+  font-style: italic;
+  color: #fff;
+}
+
+/* Animaciones */
+@keyframes pulse-live {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.animateIn {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar */
+.liveList::-webkit-scrollbar {
+  width: 4px;
+}
+.liveList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}

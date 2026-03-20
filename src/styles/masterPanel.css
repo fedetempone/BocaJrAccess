@@ -1,0 +1,162 @@
+/* --- OVERLAY: Bloquea todo y centra --- */
+.masterPanel-Full-List-Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 8, 30, 0.98); 
+  backdrop-filter: blur(15px);
+  z-index: 9999; /* Bien arriba de todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Margen de seguridad para que nunca toque los bordes del navegador */
+}
+
+/* --- CONTENEDOR: El que se desbordaba --- */
+.masterPanel-Full-List-Container {
+  position: relative; /* Cambiado de absolute para que el flex del overlay haga el trabajo */
+  width: 100%;
+  max-width: 1200px;
+  max-height: 90vh; /* Que nunca sea más alto que el 90% de la pantalla */
+  background: var(--azul-boca);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* CRÍTICO: Corta cualquier desborde de animaciones */
+}
+
+/* --- CABECERA FIJA --- */
+.masterPanel-List-Header {
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 2px solid var(--amarillo-boca);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Que no se achique si hay muchos autos */
+}
+
+/* --- ÁREA DE SCROLL: Solo los autos se mueven --- */
+.masterPanel-Scroll-Area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Evita el scroll horizontal fantasma */
+  overflow-x: hidden; 
+}
+
+/* --- TARJETAS: Layout Horizontal Limpio --- */
+.masterPanel-Item-Card {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 15px 25px;
+  border-radius: 12px;
+  border-left: 6px solid var(--azul-boca);
+  transition: background 0.3s ease;
+  min-height: 80px; /* Altura consistente */
+  display: flex;
+  align-items: center;
+}
+
+.masterPanel-View-Grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.masterPanel-Item-MainData {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+}
+
+.masterPanel-Item-Plate {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--amarillo-boca);
+  background: rgba(0,0,0,0.4);
+  padding: 6px 15px;
+  border-radius: 8px;
+  min-width: 140px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.masterPanel-Item-Details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.masterPanel-Item-Name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* --- ACCIONES SIEMPRE A LA DERECHA --- */
+.masterPanel-Item-Actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.masterPanel-Action-Btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  color: white;
+}
+
+.masterPanel-Action-Btn.edit { color: var(--amarillo-boca); }
+.masterPanel-Action-Btn.delete { color: #ff4444; }
+.masterPanel-Action-Btn:hover {
+  background: rgba(255,255,255,0.12);
+  transform: scale(1.05);
+}
+
+/* Animación ajustada para evitar el "salto" de posición */
+.animateIn {
+  animation: fadeInModal 0.3s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Personalización de la Scrollbar para que sea Boca total */
+.masterPanel-Scroll-Area::-webkit-scrollbar {
+  width: 8px;
+}
+.masterPanel-Scroll-Area::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+}
+.masterPanel-Scroll-Area::-webkit-scrollbar-thumb {
+  background: var(--amarillo-boca);
+  border-radius: 10px;
+}

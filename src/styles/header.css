@@ -1,0 +1,122 @@
+.header-boca {
+  position: relative;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo para el Título Principal */
+.header-title {
+  font-size: 2.5rem; /* Ajustá el tamaño a tu gusto */
+  font-weight: 900;
+  color: var(--blanco); /* O el color que uses para "BOCA" y "ACCESS" */
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 10px 0;
+}
+
+/* El "JR" en Amarillo */
+.text-yellow {
+  color: var(--amarillo-boca); /* Usamos tu variable de amarillo */
+  font-size: inherit;          /* Obliga a tener el mismo tamaño que el h1 */
+  font-weight: 900;            /* Mismo grosor */
+}
+
+/* --- BARRA DE SESIÓN: ESQUINA SUPERIOR DERECHA --- */
+.user-session-bar {
+  position: fixed;    /* Cambiado a fixed para que se pegue a la pantalla, no al div */
+  top: 20px;          /* Separación del borde superior */
+  right: 20px;         /* Separación del borde derecho */
+  left: auto;          /* Bloqueamos cualquier intento de centrado */
+  
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 43, 94, 0.9); /* Azul Boca sólido para que no transparente contenido abajo */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  z-index: 9999;       /* Por encima de absolutamente todo */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding-right: 12px;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logout-button {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #cc0000;
+  transform: scale(1.05);
+}
+
+.logout-button span {
+  font-weight: 900;
+  font-size: 0.8rem;
+}
+
+/* Animación de entrada suave desde la derecha */
+@keyframes slideInRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+.animateIn {
+  animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- AJUSTE PARA MÓVILES --- */
+@media (max-width: 600px) {
+  .user-session-bar {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+  }
+  .user-name {
+    display: none; /* Escondemos nombre en celu para no tapar el buscador */
+  }
+  .header-title {
+    font-size: 1.8rem; /* Achicamos un poco el título en celu */
+    margin-top: 40px;  /* Le damos aire para que no lo tape la barra de salir */
+  }
+  
+  .user-session-bar {
+    top: 5px;
+    right: 5px;
+    padding: 4px 8px;
+    transform: scale(0.9); /* La hacemos un pelín más chica para ganar espacio */
+  }
+}

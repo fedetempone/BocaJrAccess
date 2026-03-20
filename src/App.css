@@ -1,0 +1,139 @@
+/* Paleta de Colores Oficial @bocajuniors.com.ar */
+:root {
+  --azul-boca: #4a608f;
+  --amarillo-boca: #f1b430;
+  --blanco: #ffffff;
+  --negro-tech: #1a1a1a;
+  
+  /* Escala Tipográfica Minimalista (Reducida) */
+  --font-h1: clamp(1.4rem, 3vw, 1.8rem);
+  --font-h2: clamp(1.1rem, 2.5vw, 1.3rem);
+  --font-body: clamp(0.85rem, 1.5vw, 0.95rem);
+  --font-small: clamp(0.7rem, 1.2vw, 0.8rem);
+}
+
+/* Reset y Tipografía Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.2 !important; /* interlineado criollo por pedido */
+}
+
+body {
+  background-color: var(--azul-boca);
+  background: radial-gradient(circle at top, #4a608f 0%, #2a3a5a 100%);
+  color: var(--blanco);
+  min-height: 100vh;
+  font-family: 'Akzidenz-Grotesk Cnd', 'Arial Narrow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Titulos refinados */
+h1, h2, h3, h4, .titulo-pro {
+  font-family: 'Akzidenz-Grotesk', 'Arial Black', sans-serif;
+  font-size: var(--font-h1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px; /* un poco de aire para que sea mas pro */
+  font-weight: 800;
+}
+
+h2 { font-size: var(--font-h2); }
+
+/* Textos de sistema */
+p, span, label, input, button {
+  font-family: 'Akzidenz-Grotesk Cnd', 'Arial Narrow', sans-serif;
+  font-size: var(--font-body);
+}
+
+/* Layout */
+.app-container {
+  max-width: 420px; /* mas angosto es mas estetico en mobile */
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Glassmorphism mas sutil */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; /* bordes menos redondeados = mas serio */
+  padding: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px;
+}
+
+/* Inputs mas finos */
+.boca-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 1);
+  color: var(--negro-tech);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.boca-input:focus {
+  border-color: var(--amarillo-boca);
+  outline: none;
+  box-shadow: 0 0 8px rgba(241, 180, 48, 0.2);
+}
+
+/* Botones con estilo premium */
+.btn-primary {
+  width: 100%;
+  background-color: var(--amarillo-boca);
+  color: #1a1a1a;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--blanco);
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Checkbox compactos */
+.check-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--font-small);
+}
+
+/* Decorativo */
+.star-divider {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  color: var(--amarillo-boca);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
